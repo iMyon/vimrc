@@ -1,6 +1,13 @@
 execute pathogen#infect()	
-" 开启插件管理插件
+inoremap jj <ESC>
+"映射jj为esc键
+"映射标签页跳转
+map <C-Left> :tabp<CR>
+map <C-Right> :tabn<CR>
+
+set showcmd					"显示输入命令
 set nocompatible            " 关闭 vi 兼容模式
+au FileType * setl fo-=cro  "关闭换行自动注释 
 syntax on                   " 自动语法高亮
 colorscheme darkburn		" 设定配色方案
 set number                  " 显示行号
@@ -40,7 +47,7 @@ autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType c set omnifunc=ccomplete#Complete
 autocmd Filetype java set omnifunc=javacomplete#Complete
 let g:SuperTabRetainCompletionType=2
-let g:SuperTabDefaultCompletionType="<C-X><C-O>"
+"let g:SuperTabDefaultCompletionType="<C-X><C-O>"
 let g:SuperTabContextDefaultCompletionType = "<c-n>"
 
 
@@ -50,17 +57,29 @@ let g:user_emmet_mode='a'
 
 
 let Tlist_Use_Right_Window = 1         "在右侧窗口中显示taglist窗口
+map <F4> :TlistToggle<CR>
 
 
 "NERDtree
 "autocmd vimenter * NERDTree
- let NERDTreeShowFiles=1
- let NERDTreeShowHidden=1
- let NERDTreeShowLineNumbers=1
- map <C-X> :NERDTreeToggle<CR>
- "最后窗口是它时关闭vim 
- autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+let NERDTreeShowFiles=1
+let NERDTreeShowHidden=1
+let NERDTreeShowBookmarks=1
+let NERDTreeShowLineNumbers=1
+"最后窗口是它时关闭vim 
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 
- "NERDComment
- let mapleader=","  
+"NERDComment
+
+"WMToggle
+map <F3>  :WMToggle<CR>
+"let g:winManagerWindowLayout='NERDTree|BufExplorer'
+let g:NERDTree_title='NERD Tree'
+let g:winManagerWindowLayout='NERDTree|BufExplorer'
+function! NERDTree_Start()
+exec 'NERDTree'
+endfunction
+function! NERDTree_IsValid()
+return 1
+endfunction
