@@ -1,3 +1,4 @@
+set guifont=Bitstream\ Vera\ Sans\ Mono\ 14
 "Toggle Menu and Toolbar
 map <silent> <F2> :if &guioptions =~# 'T' <Bar>
 			\set guioptions-=T <Bar>

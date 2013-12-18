@@ -49,11 +49,26 @@ autocmd Filetype java set omnifunc=javacomplete#Complete
 let g:SuperTabRetainCompletionType=2
 "let g:SuperTabDefaultCompletionType="<C-X><C-O>"
 let g:SuperTabContextDefaultCompletionType = "<c-n>"
+let g:SuperTabContextDefaultCompletionType = "<c-y>,"
 
 
 "emmet
 let g:user_emmet_mode='a'
-
+"HTML  use <c-e> <c-n> <c-p>  
+let g:user_emmet_expandabbr_key='<c-e>'  
+let g:user_emmet_complete_tag=1  
+let g:user_emmet_next_key='<c-j>'  
+let g:user_emmet_prev_key='<c-k>'  
+let g:user_emmet_togglecomment_key='<c-\>'
+let g:user_emmet_settings = {  
+\  'html' : {  
+\    'filters' : 'html',  
+\    'snippets' : {  
+\      'bt' : "<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset=\"UTF-8\">\n    <title></title>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <link href=\"css/bootstrap.min.css\" rel=\"stylesheet\" media=\"screen\">\n    <!--[if lt IE 9]>\n      <script src=\"/assets/js/html5shiv.js\"></script>\n      <script src=\"/assets/js/respond.min.js\"></script>\n    <![endif]-->\n  </head>\n  <body>\n    ${cursor}${child}\n    <script src=\"js/jquery.min.js\"></script>\n    <script src=\"js/bootstrap.min.js\"></script>\n  </body>\n</html>",  
+\      'mn'      : "#include <functional>\n#include <algorithm>\n#include <iostream>\n#include <fstream>\n#include <sstream>\n#include <iomanip>\n#include <numeric>\n#include <cstring>\n#include <climits>\n#include <cassert>\n#include <cstdio>\n#include <string>\n#include <vector>\n#include <bitset>\n#include <queue>\n#include <stack>\n#include <cmath>\n#include <ctime>\n#include <list>\n#include <set>\n#include <map>\nusing namespace std;\ntypedef long long LL;\nconst int MOD =1e9 + 7;\nconst int INF = 0x3f3f3f3f;\n\nconst int MXN=1e6;\nint N,M;\n\nvoid Rush()\n{\n\tint T;\n\tscanf(\"%d\",&T);\n\tfor(int kas=1;kas<=T;++kas)\n\t{\n\t\tprintf(\"Case %d: \",kas);\n\t}\n}\nint main() \n{\n\t${cursor}\n\treturn 0;\n}\n",  
+\    },  
+\  },  
+\}  
 
 
 let Tlist_Use_Right_Window = 1         "在右侧窗口中显示taglist窗口
@@ -83,3 +98,23 @@ endfunction
 function! NERDTree_IsValid()
 return 1
 endfunction
+
+
+
+
+"Session
+let g:session_autosave='yes'
+let g:session_autoload='yes'
+
+
+
+"vimmatchTag  
+
+let g:mta_filetypes = {
+    \ 'html' : 1,
+    \ 'xhtml' : 1,
+    \ 'xml' : 1,
+    \ 'php' : 1,
+    \ 'htm' : 1,
+    \ 'jsp' : 1,
+    \}
